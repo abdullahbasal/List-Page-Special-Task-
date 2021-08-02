@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style1.css" />
+  </head>
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"
+  ></script>
+  <body>
+    <div id="page" class="container">
+      <div class="form-group">
+        <label for="name-input-area">İsim:</label>
+        <input
+          placeholder="Name"
+          id="name-input-area"
+          class="form-control"
+          type="text"
+          oninput="validate('name-input-area')"
+        />
+        <label for="last-name-input-area">Soyisim:</label>
+        <input
+          placeholder="Last Name"
+          id="last-name-input-area"
+          class="form-control"
+          type="text"
+          oninput="validate('last-name-input-area')"
+        />
+        <label for="age-input-area">Yaş:</label>
+        <input
+          placeholder="Age"
+          id="age-input-area"
+          class="form-control"
+          type="number"
+          oninput="validate('age-input-area')"
+        />
+        <label for="country-input-area">Ülke:</label>
+        <input
+          placeholder="Country"
+          id="country-input-area"
+          class="form-control"
+          type="text"
+          oninput="validate('country-input-area')"
+        />
+        <label for="city-input-area">Şehir:</label>
+        <input
+          placeholder="City"
+          id="city-input-area"
+          class="form-control"
+          type="text"
+          oninput="validate('city-input-area')"
+        />
+      </div>
+      <button
+        class="btn btn-primary btn-block"
+        onclick="addButtonClicked()"
+        id="add-button"
+      >
+        Add
+      </button>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">
+              <input
+                placeholder="Filter By Name"
+                id="name-filter-input-area"
+                class="form-control"
+                type="text"
+                oninput="filterTable(event.target.value, 'name')"
+              />
+            </th>
+            <th scope="col">
+              <input
+                placeholder="Filter By Surname"
+                id="surname-filter-input-area"
+                class="form-control"
+                type="text"
+                oninput="filterTable(event.target.value, 'surname')"
+              />
+            </th>
+            <th scope="col">
+              <input
+                placeholder="Filter By Age"
+                id="age-filter-input-area"
+                class="form-control"
+                type="number"
+                oninput="filterTable(event.target.value, 'age', 'number')"
+              />
+            </th>
+            <th scope="col">
+              <input
+                placeholder="Filter By Country"
+                id="country-filter-input-area"
+                class="form-control"
+                type="text"
+                oninput="filterTable(event.target.value, 'country')"
+              />
+            </th>
+            <th scope="col">
+              <input
+                placeholder="Filter By City"
+                id="city-filter-input-area"
+                class="form-control"
+                type="text"
+                oninput="filterTable(event.target.value, 'city')"
+              />
+            </th>
+            <th scope="col"></th>
+          </tr>
+          <tr>
+            <th scope="col">
+              <input
+                type="checkbox"
+                id="all-selected-checkbox"
+                onchange="selectAll(event.target.checked)"
+              />
+            </th>
+            <th scope="col">#</th>
+            <th scope="col">İsim</th>
+            <th scope="col">Soyisim</th>
+            <th scope="col">Yaş</th>
+            <th scope="col">Ülke</th>
+            <th scope="col">Şehir</th>
+            <th scope="col">Düzenle/Sil</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+      <button
+        id="delete-selecteds-button"
+        onclick="deleteSelectedsButtonClicked()"
+      >
+        Delete Selecteds
+      </button>
+      <p id="all-selected">Tümü seçili</p>
+      <p id="alan"></p>
+    </div>
+    <div id="popup">
+      <p>Bu işlemi gerçekleştirmek istiyor musunuz?</p>
+      <button class="confirm buttons" onclick="confirm()">Sil</button
+      ><button class="cancel buttons" onclick="closePopup()">
+        iptal et
+      </button>
+    </div>
+
+    <script src="script1.js" async defer></script>
+  </body>
+</html>
